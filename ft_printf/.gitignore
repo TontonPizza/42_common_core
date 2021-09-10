@@ -1,0 +1,10 @@
+.idea
+cmake*
+a.out
+*.o
+leoprintf.a
+main.cpft/
+pftpft/
+pft_2019/
+main*
+ftprintfdestructor

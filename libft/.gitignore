@@ -1,0 +1,9 @@
+a.out
+main*
+.DS_Store
+cmake*
+CMake*
+.idea
+*gch
+*.o
+libft.a

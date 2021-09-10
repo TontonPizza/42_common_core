@@ -1,0 +1,18 @@
+db 8 bits
+dw 16 bits
+dd 32 bits
+dq 64 bits
+dt 80 bits
+
+tutorialspoint.com/assembly_programming/
+
+
+## ERROR :
+/usr/bin/ld: libasm.a(ft_strlen.o): relocation R_X86_64_32 against `.text' can not be used when making a PIE object; recompilez avec -fPIC
+## SOLUTION :
+oublié de mettre ":" apres section.text:
+
+disassemble intel :
+
+objdump -M intel -d a.out
+ndisasm -b 64 a.out > a.out.asm
