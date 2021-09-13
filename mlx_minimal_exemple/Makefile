@@ -5,7 +5,7 @@ DIR_MLX = ./minilibx/
 COMPILE = gcc
 CFLAGS = -Wall -Wextra -Werror
 
-MINI_OBS =  ./minilibx/*.o
+MINI_OBS =  ./minilibx/libmlx_Linux.a
 
 
 OBJ = $(SRC:.c=.o)
@@ -15,7 +15,7 @@ OBJ = $(SRC:.c=.o)
 
 all: $(NAME)
 
-$(NAME) : $(OBJ)
+$(NAME) : $(OBJ) main.c
 		rm -rf $(NAME)
 		make -C $(DIR_MLX)
 		$(COMPILE) $(CFLAGS) main.c $(MINI_OBS) -I$(INCL) -lm  -lXext -lX11 -lbsd -o $(NAME)

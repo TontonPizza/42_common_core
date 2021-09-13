@@ -3,6 +3,7 @@
 #include <string.h>
 #include <stdlib.h>
 #include <stdio.h>
+#include <unistd.h>
 
 #define TEXTURE_COUNT 1
 
@@ -53,9 +54,9 @@ typedef struct  s_app
     void *mlx;
     void *image;
     void *window;
-    void *data;
     int width;
     int height;
+	int image_is_destroyed;
     t_texture sprites;
     t_game_state game_state;
 }               t_app;
@@ -81,6 +82,7 @@ void    init_app(t_app *app, char *title, int w, int h)
     app->window = mlx_new_window(app->mlx, app->width, app->height, title);
     app->game_state.player_y = 0;
     app->game_state.player_x = 0;
+	app->image_is_destroyed = 0;
 }
 
 void draw_sprite_at_position(t_app *app, void *dest, t_texture *texture, int x, int y)
@@ -103,7 +105,9 @@ int routine(void *data)
     // Prepare the data
     t_app       *app = (t_app *)(data);
     t_texture   *sprite = &(app->sprites);
-    int         discard; // this one has no use but in mlx_get_data_addr requires an int
+	app->image_is_destroyed = 0;
+
+	int         discard; // this one has no use but in mlx_get_data_addr requires an int
     void        *image_data;
 
     // create a buffer image
@@ -118,13 +122,21 @@ int routine(void *data)
 
     // puts the buffer image in the windows
     mlx_put_image_to_window(app->mlx, app->window, app->image, 0, 0);
-    return (mlx_destroy_image(app->mlx, app->image));
+	mlx_destroy_image(app->mlx, app->image);
+	app->image = NULL;
+	app->image_is_destroyed = 1;
+	return (0);
 }
 
-void    destroy_game_data(t_app *app)
+int    destroy_game_data(void *data)
 {
-    // free all stuff, take care of segfault (i didnt)
-    (mlx_destroy_image(app->mlx, app->image));
+	t_app *app = (t_app *)data;
+
+	mlx_destroy_image(app->mlx, app->sprites.img);
+	if (app->image_is_destroyed == 0)
+		mlx_destroy_image(app->mlx, app->image);
+	mlx_destroy_window(app->mlx, app->window);
+	mlx_destroy_display(app->mlx);
     exit(0);
 }
 
@@ -165,6 +177,7 @@ int main()
 
 
     mlx_key_hook(app.window, &player_input, &app);
-    mlx_loop_hook(app.mlx, &routine, &app);
+	mlx_hook(app.window, 17, 0, destroy_game_data, &app); // close window with mouse
+	mlx_loop_hook(app.mlx, &routine, &app);
     mlx_loop(app.mlx);
 }
