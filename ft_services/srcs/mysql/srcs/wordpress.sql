@@ -111,7 +111,7 @@ INSERT INTO `wp_options` (`option_id`, `option_name`, `option_value`, `autoload`
 (3, 'blogname', 'ft_services', 'yes'),
 (4, 'blogdescription', 'Un Projet 42', 'yes'),
 (5, 'users_can_register', '0', 'yes'),
-(6, 'admin_email', 'vo-nguye@student.42.fr', 'yes'),
+(6, 'admin_email', 'hng@student.42.fr', 'yes'),
 (7, 'start_of_week', '1', 'yes'),
 (8, 'use_balanceTags', '0', 'yes'),
 (9, 'use_smilies', '1', 'yes'),
@@ -407,7 +407,7 @@ CREATE TABLE `wp_usermeta` (
 --
 
 INSERT INTO `wp_usermeta` (`umeta_id`, `user_id`, `meta_key`, `meta_value`) VALUES
-(1, 1, 'nickname', 'vo-nguye'),
+(1, 1, 'nickname', 'hng'),
 (2, 1, 'first_name', ''),
 (3, 1, 'last_name', ''),
 (4, 1, 'description', ''),
@@ -506,7 +506,7 @@ CREATE TABLE `wp_users` (
 --
 
 INSERT INTO `wp_users` (`ID`, `user_login`, `user_pass`, `user_nicename`, `user_email`, `user_url`, `user_registered`, `user_activation_key`, `user_status`, `display_name`) VALUES
-(1, 'vo-nguye', '$P$BPkVDl4MFVJ6jEbCU0FQqSshXXtfmL.', 'vo-nguye', 'vo-nguye@student.42.fr', 'http://localhost:5050', '2020-11-20 05:08:12', '', 0, 'vo-nguye'),
+(1, 'hng', '$P$BPkVDl4MFVJ6jEbCU0FQqSshXXtfmL.', 'hng', 'hng@student.42.fr', 'http://localhost:5050', '2020-11-20 05:08:12', '', 0, 'hng'),
 (2, 'DucDeNormandie', '$P$BPkVDl4MFVJ6jEbCU0FQqSshXXtfmL.', 'DucDeNormandie', 'toto@hotmail.fr', 'http://localhost:5050', '2020-11-20 05:08:12', '', 0, 'DucDeNormandie'),
 (3, 'NainNain', '$P$BPkVDl4MFVJ6jEbCU0FQqSshXXtfmL.', 'NainNain', 'jojo@msn.com', 'http://localhost:5050', '2020-11-20 05:08:12', '', 0, 'NainNain');
 

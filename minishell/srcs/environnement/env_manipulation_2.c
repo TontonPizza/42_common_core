@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   env_manipulation_2.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vo-nguye <vo-nguye@42.fr>                  +#+  +:+       +#+        */
+/*   By: hng <hng@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/08 08:43:04 by vo-nguye          #+#    #+#             */
-/*   Updated: 2021/01/08 08:43:04 by vo-nguye         ###   ########.fr       */
+/*   Created: 2021/01/08 08:43:04 by hng          #+#    #+#             */
+/*   Updated: 2021/01/08 08:43:04 by hng         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ t_env_data	*get_meta_data(int first_call)
 	{
 		metadata.env_list = x_malloc(sizeof(t_env_var));
 		metadata.env_list->name = ft_strdup("author");
-		metadata.env_list->value = ft_strdup("vo-nguye");
+		metadata.env_list->value = ft_strdup("hng");
 		metadata.env_list->next = 0;
 		metadata.requested_env_var = 0;
 		metadata.all_env_as_array = ft_split("yolo yolo", ' ');
