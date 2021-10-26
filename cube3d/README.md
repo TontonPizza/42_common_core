@@ -3,7 +3,7 @@
 # cube3d
 ## Raycaster avec la minilibX
 
-https://www.youtube.com/watch?v=VCAzl3tc3iU&ab_channel=V.Nguyen
+https://www.youtube.com/watch?v=VCAzl3tc3iU&
 
 #### Ce projet permet d'explorer la technique du ray-casting. L'objectif est de faire une vue dynamique au sein d'un labyrinthe 
 
